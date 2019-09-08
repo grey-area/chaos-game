@@ -33,7 +33,7 @@ if __name__ == '__main__':
     xs = []
     ys = []
 
-    steps = 40000
+    steps = 60000
     for i in range(steps):
         vertex = np.random.choice(vertices)
         point = (1 - args.alpha) * point + args.alpha * vertex
@@ -44,16 +44,16 @@ if __name__ == '__main__':
     plt.figure(figsize=(7, 7))
 
     plt.scatter(vertex_xs, vertex_ys, s=20, c='C3', zorder=1)
-    plt.scatter(xs, ys, s=0.03, c='white', zorder=0)
+    plt.scatter(xs[1000:], ys[1000:], s=0.01, c='white', zorder=0)
     plt.axis('off')
     plt.gca().set_aspect('equal')
 
-    x_min = np.min(vertex_xs) * 1.1
-    x_max = np.max(vertex_xs) * 1.1
-    y_min = np.min(vertex_ys) * 1.1
-    y_max = np.max(vertex_ys) * 1.1
+    x_min = np.min(vertex_xs) * 1.03
+    x_max = np.max(vertex_xs) * 1.03
+    y_min = np.min(vertex_ys) * 1.03
+    y_max = np.max(vertex_ys) * 1.03
     plt.xlim((x_min, x_max))
     plt.ylim((y_min, y_max))
     plt.tight_layout()
-    plt.savefig('chaos_game.png', dpi=400)
+    plt.savefig('chaos_game.png', dpi=600)
 
